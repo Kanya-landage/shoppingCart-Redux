@@ -10,20 +10,25 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
+import MyProfile from "./Components/MyProfile";
+import Header from "./Components/Header";
+import Login from "./Components/Login";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <>
+      <Login />
+      {/* <Router>
+      <Header />
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/placeOrder" element={<PlaceOrder />} />
+          <Route path="/my-profile" element={<MyProfile />} />
           <Route path="/" element={<Navigate replace to="/home" />} />
         </Routes>
-      </Router>
-    </div>
+      </Router> */}
+    </>
   );
 }
 

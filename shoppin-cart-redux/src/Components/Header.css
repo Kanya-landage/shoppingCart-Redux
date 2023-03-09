@@ -1,0 +1,28 @@
+.input-group-text {
+  background-color: #fff;
+  border: 0 !important;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 100%;
+  background-color: #696666a8;
+  width: 12rem;
+  right: 1rem;
+  border-radius: 5px;
+  line-height: 2rem;
+  box-shadow: 2px 2px 2px 2px #8f8b8b60;
+  text-align: start;
+  padding: 1rem;
+  z-index: 1;
+}
+.profile-menu li {
+  list-style: none;
+  padding: 0;
+}
+.profile-menu li:hover {
+  background-color: rgba(128, 128, 128, 0.479) !important;
+  color: white;
+}

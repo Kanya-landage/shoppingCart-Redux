@@ -4,6 +4,7 @@ import _ from "lodash";
 import Pagination from "./Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, addToCart } from "../redux/actions/HomeActions";
+import Header from "./Header";
 function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,33 +21,23 @@ function Home() {
     (state) => state.product.allProducts
   );
 
-  const allProducts = useSelector(
-    (state) => state
-  );
-  console.log(allProducts)
+  const allProducts = useSelector((state) => state);
+  console.log(allProducts);
   let cartData = useSelector((state) => state.product.cart);
-  console.log(cartData);
-  
-
- 
-  
 
   useEffect(() => {
     dispatch(fetchProducts());
-    }, []);
-
-
- useEffect(() => {
-  setPages(parseInt(allProductsFromRedux.length / itemsPerPage));
-  setPaginatedRecords(allProductsFromRedux.slice(0, 5));
- },[allProductsFromRedux])
-
- 
+  }, []);
+console.log(cartData)
+  useEffect(() => {
+    setPages(parseInt(allProductsFromRedux.length / itemsPerPage));
+    setPaginatedRecords(allProductsFromRedux.slice(0, 5));
+  }, [allProductsFromRedux]);
 
   const handleSorting = (e) => {
     setSorting(e.target.value);
     if (e.target.value === "default") {
-      getAllProducts();
+      allProductsFromRedux();
     }
 
     if (e.target.value === "high to low") {
@@ -75,14 +66,16 @@ function Home() {
   return (
     <div>
       <div className="container">
-        <h1>
+        {/* <h1>
           <a href="/">My Ecommerce Site</a>
           <span className="pull-right">
-            <a onClick={() => navigateToCart()}>Cart ({cartData ? cartData.length : 0})</a>
+            <a onClick={() => navigateToCart()}>
+              Cart ({cartData ? cartData.length : 0})
+            </a>
           </span>
-        </h1>
-        <hr />
-        <select
+        </h1> */}
+        {/* <hr /> */}
+        {/* <select
           style={{ float: "left" }}
           value={sorting}
           onChange={(e) => handleSorting(e)}
@@ -90,9 +83,9 @@ function Home() {
           <option value="default">Default</option>
           <option value="high to low">High to Low</option>
           <option value="low to high">Low to High</option>
-        </select>
+        </select> */}
         <br />
-        <div className="row">
+        {/* <div className="row">
           {paginatedRecords?.map((product, index) => {
            
             return (
@@ -128,8 +121,8 @@ function Home() {
               </div>
             );
           })}
-        </div>
-        <div className="footer">
+        </div> */}
+        {/* <div className="footer">
           <Pagination
             itemsPerPage={itemsPerPage}
             pages={pages}
@@ -149,12 +142,12 @@ function Home() {
               <option value="50">50</option>
             </select>
           </label>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
-export default  React.memo(Home);
+export default React.memo(Home);
 function addNewItem(product, setSelectedProduct, selectedProduct) {
   let productWithQuantity = {
     ...product,
